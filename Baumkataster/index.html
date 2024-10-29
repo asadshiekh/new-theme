@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baumkataster Wien</title>
+    
+    <!-- -------------------- -->
+    <!-- Preload and load individual CSS files -->
+    <!-- -------------------- -->
+    <link rel="stylesheet" href="components/.css/.css_main/header.css">
+    
+    <link rel="stylesheet" href="components/.css/.css_main/main.css">
+    
+    <link rel="stylesheet" href="components/.css/.css_main/footer.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet CSS -->
+    
+    <!-- -------------------- -->
+    <!-- Script -->
+    <!-- -------------------- -->
+    <script defer src="components/.js/.js Main/app.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script> <!-- Leaflet-heat JS -->
+
+    <!-- Preconnect to external resources to improve loading times -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <!-- -------------------- -->
+    <!-- Header mit dem Titel und Sandwich Menü -->
+    <!-- -------------------- -->
+    <header>
+        <a href="index.html" id="app-title">BAUMKATASTER WIEN</a>
+        <nav>
+            <div id="sandwich-icon" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- -------------------- -->
+    <!-- Sandwich Dropdown Menü -->
+    <!-- -------------------- -->
+    <aside id="dropdown-menu" style="display: none; z-index: 9;">
+        <ul>
+            <li><a href="index.html">BAUMKATASTER WIEN</a></li>
+            <li><a href="baumpflege-bogner.html">BAUMPFLEGE BOGNER</a></li>
+            <!-- Theme Toggle Switch in Menu1 -->
+            <li class="theme-toggle">
+                <label for="theme-toggle">Helles/Dunkles Design</label>
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme" aria-label="Dark/Light Theme Toggle">
+            </li>
+            <li><a href="#" onclick="clearCache()">Cache leeren</a></li>
+            <li><a href="support.html">Support</a></li>
+                    <!-- Login Button -->
+            <li class="login-btn-container">
+                <button id="login-btn" class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            </li>
+            <!-- Add this at the end of your menu (inside <ul>) -->
+            <li class="work-order-upload">
+                <label for="work-order-upload" class="work-order-label">Arbeitsauftrag einscannen:</label>
+                <input type="file" id="work-order-upload" accept="image/*" class="work-order-input" />
+                <button id="work-order-upload-btn" class="upload-btn" onclick="document.getElementById('work-order-upload').click()">Datei auswählen</button>
+                <button id="work-order-process-btn" class="work-order-btn" onclick="processWorkOrder()">Arbeitsauftrag verarbeiten</button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- -------------------- -->
+    <!-- Menu 2: Baumnummer and Address Search -->
+    <!-- -------------------- -->
+<aside id="second-menu" style="z-index: 8;">
+    <ul>
+        <!-- Baumnummer Search Field -->
+        <li>
+            <input type="text" id="addressSearch" placeholder="Adresse eingeben." autocomplete="off" />
+            <div id="addressSuggestions" class="suggestions-list"></div> <!-- Suggestions list -->        
+            <input type="text" id="baumnummerSearch" placeholder="Baumnummer eingeben.">
+            <button onclick="searchBaumNummer()">Suche</button>
+        </li>
+
+    <!-- -------------------- -->
+    <!-- Dropdown for Other Options -->
+    <!-- -------------------- -->
+        <li>
+            <button id="options-toggle" onclick="toggleOptions()">Weitere Suchfunktionen</button>
+            <ul id="other-options" style="display: none;">
+                <!-- Heatmap Option -->
+                <li><button>Heatmap anzeigen</button></li>
+                <li>
+                    <input type="checkbox" id="heatmapSwitch" onclick="toggleHeatmap()">
+                </li>
+                <!-- Young/Old Trees Options -->
+                <li><button>Nur Jungbäume anzeigen</button></li>
+                <li>
+                    <input type="checkbox" id="youngTreesSwitch" onclick="toggleYoungTrees()">
+                </li>
+                <li><button>Nur Altbäume anzeigen</button></li>
+                <li>
+                    <input type="checkbox" id="oldTreesSwitch" onclick="toggleOldTrees()">
+                </li>
+            </ul>
+        </li>
+
+        <!-- Tree Count Display -->
+        <li><p id="young-tree-count">Jungbäume (unter 25 Jahre): 0</p></li>
+        <li><p id="old-tree-count">Altbäume (über 25 Jahre): 0</p></li>
+    </ul>
+</aside>
+
+    <!-- -------------------- -->
+    <!-- Karte -->
+    <!-- -------------------- -->
+    <div id="map" style="height: 100vh;"></div>
+
+    <!-- -------------------- -->
+    <!-- Footer mit Sprachauswahl -->
+    <!-- -------------------- -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Über uns</h4>
+            <a href="ourmission.html">Unsere Mission</a>
+            <span>|</span>
+            <a href="team.html">Team</a>
+        </div>
+    
+        <div class="footer-section language-selection">
+            <label for="languageSelect">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="zh">🇨🇳 中文 (Chinese)</option>
+                <option value="ru">🇷🇺 Русский (Russian)</option>
+            </select>
+        </div>
+    
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <a href="support.html">Support</a>
+            <span>|</span>
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+    
+</body>
+</html>

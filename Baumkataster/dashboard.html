@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baumkataster Dashboard</title>
+
+        <!-- -------------------- -->
+        <!-- Preload and load individual CSS files -->
+        <!-- -------------------- -->
+        <link rel="stylesheet" href="components/.css/.css_main/header.css">
+        
+        <link rel="stylesheet" href="components/.css/.css_main/main.css">
+    
+        <link rel="stylesheet" href="components/.css/.css_dashboard/sidebar.css">
+
+        <link rel="stylesheet" href="components/.css/.css_dashboard/dashboard.css">
+        
+        <link rel="stylesheet" href="components/.css/.css_main/footer.css">
+
+        <!-- -------------------- -->
+        <!-- Script -->
+        <!-- -------------------- -->
+        <script defer src="components/.js/.js Main/app.js"></script>
+        <script defer src="components/.js/.js Dashboard/dashboard.js"></script>
+        <script defer src="components/.js/.js Dashboard/sidebar.js"></script>
+        <script defer src="components/.js/.js Dashboard/charts.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script defer src="components/.js/.js Main/app.js"></script>
+
+        <!-- -------------------- -->
+        <!-- Preconnect to external resources to improve loading times -->
+        <!-- -------------------- -->
+        <link rel="preconnect" href="https://unpkg.com">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+            
+
+
+</head>
+
+<body>
+    <!-- -------------------- -->
+    <!-- Header mit dem Titel und Sandwich Menü -->
+    <!-- -------------------- -->
+    <header>
+        <a href="index.html" id="app-title">BAUMKATASTER WIEN</a>
+        <nav>
+            <div id="sandwich-icon" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- -------------------- -->
+    <!-- Sandwich Dropdown Menü -->
+    <!-- -------------------- -->
+    <aside id="dropdown-menu" style="display: none;">
+        <ul>
+            <li><a href="index.html">BAUMKATASTER WIEN</a></li>
+            <li><a href="baumpflege-bogner.html">BAUMPFLEGE BOGNER</a></li>
+            <!-- Theme Toggle Switch in Menu1 -->
+            <li class="theme-toggle">
+                <label for="theme-toggle">Helles/Dunkles Design</label>
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme" aria-label="Dark/Light Theme Toggle">
+            </li>
+            <li><a href="#" onclick="clearCache()">Cache leeren</a></li>
+            <li><a href="support.html">Support</a></li>
+                    <!-- Login Button -->
+            <li class="login-btn-container">
+                <button id="login-btn" class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            </li>
+            <!-- Add this at the end of your menu (inside <ul>) -->
+            <li class="work-order-upload">
+                <label for="work-order-upload" class="work-order-label">Arbeitsauftrag einscannen:</label>
+                <input type="file" id="work-order-upload" accept="image/*" class="work-order-input" />
+                <button id="work-order-upload-btn" class="upload-btn" onclick="document.getElementById('work-order-upload').click()">Datei auswählen</button>
+                <button id="work-order-process-btn" class="work-order-btn" onclick="processWorkOrder()">Arbeitsauftrag verarbeiten</button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- -------------------- -->
+    <!-- Sidebar mit Slider Button zum Ein-/Ausklappen -->
+    <!-- -------------------- -->
+    <div class="sidebar-modern" id="sidebar">
+        <div class="sidebar-header-modern">
+            <label class="switch">
+                <input type="checkbox" id="toggleSidebar" onchange="toggleMainMenu()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <ul class="menu-list-modern">
+            <li><button class="menu-button" onclick="window.location.href='dashboard.html'">Dashboard</button></li>
+            <li><button class="menu-button" onclick="window.location.href='dashboard-tree-map-info.html'">Baumübersicht</button></li>
+            <li><button class="menu-button" onclick="window.location.href='statistic.html'">Statistiken</button></li>
+            <li><button class="menu-button" onclick="window.location.href='settings.html'">Einstellungen</button></li>
+
+            <!-- Submenü für Arbeitsaufträge -->
+            <li class="submenu-toggle">
+                <div class="menu-item">
+                    <button class="menu-button">Work orders</button>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="submenu-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </div>
+                <ul class="submenu hidden">
+                    <li><button class="submenu-btn" onclick="window.location.href='#'">MAP</button></li>
+                    <li><button class="submenu-btn" onclick="window.location.href='#'">Aktueller Arbeitsauftrag</button></li>
+                    <li><button class="submenu-btn" onclick="window.location.href='#'">Abgeschlossene Arbeitsaufträge</button></li>
+                </ul>
+            </li>
+            
+
+            <li><button class="menu-button" id="logout-btn"><i class="fas fa-sign-out-alt"></i>Abmelden</button></li>
+        </ul>
+    </div>
+
+    <!-- -------------------- -->
+    <!-- Hauptinhalt -->
+    <!-- -------------------- -->
+    </main>
+        <div class="content-modern" id="content">
+            <div class="header-modern">
+                <h1>Baumkataster Dashboard</h1>
+            </div>
+
+            <!-- Widgets -->
+            <div class="row-modern">
+                <div class="col-modern">
+                    <div class="widget-modern">
+                        <h3>Gesamtanzahl Bäume</h3>
+                        <p id="totalTrees">Lädt...</p>
+                    </div>
+                </div>
+                <div class="col-modern">
+                    <div class="widget-modern">
+                        <h3>Neugepflanzte Bäume</h3>
+                        <p id="newTrees">Lädt...</p>
+                    </div>
+                </div>
+                <div class="col-modern">
+                    <div class="widget-modern">
+                        <h3>Gefällte Bäume</h3>
+                        <p id="removedTrees">Lädt...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-modern">
+                <div class="col-modern-large">
+                    <div class="widget-modern">
+                        <h3>Baumpflege-Status</h3>
+                        <canvas id="treeCareChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-modern-large">
+                    <div class="widget-modern">
+                        <h3>Altersstatistik der Bäume</h3>
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.submenu-toggle').forEach(item => {
+            item.addEventListener('click', function () {
+                const submenu = this.querySelector('.submenu');  // Select the .submenu within .submenu-toggle
+                const arrow = this.querySelector('.submenu-arrow');  // Select the arrow within .submenu-toggle
+                
+                submenu.classList.toggle('show');  // Toggle 'show' on submenu
+                arrow.classList.toggle('rotate');  // Toggle 'rotate' on arrow
+            });
+        });
+
+    </script>
+
+    <!-- -------------------- -->
+    <!-- Footer mit Sprachauswahl -->
+    <!-- -------------------- -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Über uns</h4>
+            <a href="ourmission.html">Unsere Mission</a>
+            <span>|</span>
+            <a href="team.html">Team</a>
+        </div>
+    
+        <div class="footer-section language-selection">
+            <label for="languageSelect">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="zh">🇨🇳 中文 (Chinese)</option>
+                <option value="ru">🇷🇺 Русский (Russian)</option>
+            </select>
+        </div>
+    
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <a href="support.html">Support</a>
+            <span>|</span>
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
