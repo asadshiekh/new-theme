@@ -1,0 +1,26 @@
+.statistics-section{
+    margin-right: 10px;
+    margin-left: 260px;
+    overflow: auto;
+}
+
+.chart-container {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar-modern {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    main {
+        margin-left: 0;
+    }
+}

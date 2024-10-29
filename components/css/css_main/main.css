@@ -1,0 +1,377 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme change */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+/*-----------------------------*/
+/* Full-screen Map */
+/*-----------------------------*/
+#map {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 1;
+}
+
+.leaflet-marker-icon {
+    z-index: 1000 !important; /* Ensure markers are above the map */
+}
+
+/*-----------------------------*/
+/* Updated Second Menu - Positioned above the footer */
+/*-----------------------------*/
+#second-menu {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 15px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    #second-menu {
+        left: 10px;
+        padding: 12px;
+    }
+}
+
+/*-----------------------------*/
+/* Second Menu UI Improvements */
+/*-----------------------------*/
+#second-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+#second-menu ul li {
+    margin: 8px 0;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+#second-menu ul li input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+#second-menu ul li button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: #56c58c;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#second-menu ul li button:hover {
+    background-color: #37966f;
+}
+
+/*-----------------------------*/
+/* Checkbox Switch Styling */
+/*-----------------------------*/
+#second-menu ul li input[type="checkbox"] {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#second-menu ul li input[type="checkbox"]::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s ease;
+}
+
+#second-menu ul li input[type="checkbox"]:checked {
+    background-color: #56c58c;
+}
+
+#second-menu ul li input[type="checkbox"]:checked::before {
+    transform: translateX(20px);
+}
+
+/*-----------------------------*/
+/* Responsive Menu 2 */
+/*-----------------------------*/
+#second-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#second-menu ul li {
+    margin-bottom: 10px;
+}
+
+/* Hide other options in Menu 2 on small screens 
+@media screen and (max-width: 768px) {
+    #second-menu ul li:not(:nth-child(1)),
+    #second-menu ul li:not(:nth-child(2)),
+    #second-menu ul li:not(:nth-child(3)) {
+        display: none;
+    }
+
+    #addressSearch, #baumnummerSearch, #second-menu button {
+        width: 100%;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+}
+*/
+
+
+/*-----------------------------*/
+/* Zoom controls positioned bottom-right */
+/*-----------------------------*/
+.leaflet-control-zoom {
+    position: absolute !important;
+    bottom: 70px !important;
+    right: 20px !important;
+    z-index: 1001;
+}
+
+/*-----------------------------*/
+/* Dark/Light Theme Toggle Switch */
+/*-----------------------------*/
+#theme-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#theme-switch label {
+    font-size: 14px;
+}
+
+#theme-switch input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+#theme-switch input[type="checkbox"]::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s ease;
+}
+
+#theme-switch input[type="checkbox"]:checked {
+    background-color: #56c58c;
+}
+
+#theme-switch input[type="checkbox"]:checked::before {
+    transform: translateX(20px);
+}
+
+.dark-menu font {
+    color: white;
+}
+
+.dark-menu .work-order-upload {
+    background-color: #979797;
+}
+
+/*-----------------------------*/
+/* Popup Content */
+/*-----------------------------*/
+.leaflet-popup-content {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+/*-----------------------------*/
+/* Improve header readability */
+/*-----------------------------*/
+header.light-header {
+    background-color: #3c763d;
+    color: white;
+}
+
+#map.light-map {
+    filter: brightness(1);
+}
+
+#dropdown-menu.light-menu,
+#second-menu.light-menu {
+    background-color: #fff;
+}
+
+footer.light-footer {
+    background-color: #3c763d;
+    color: white;
+}
+
+#second-menu input, #second-menu button {
+    color: #333; /* Ensure text contrast */
+}
+
+/*-----------------------------*/
+/* Dark theme overrides */
+/*-----------------------------*/
+body.dark {
+    background-color: #121212;
+    color: #eee;
+}
+
+/*-----------------------------*/
+/* Improve header contrast in dark mode */
+/*-----------------------------*/
+header.dark-header {
+    background-color: #222;
+    color: #ddd;
+}
+
+#map.dark-map {
+    filter: brightness(0.6); /* Darken the map slightly */
+}
+
+/*-----------------------------*/
+/* Adjust menu styles for better readability */
+/*-----------------------------*/
+#dropdown-menu.dark-menu,
+#second-menu.dark-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+    border: 1px solid #444; /* Add contrast with borders */
+}
+
+footer.dark-footer {
+    background-color: #222;
+    color: #ddd;
+}
+
+#second-menu input, #second-menu button {
+    background-color: #333;
+    color: #eee;
+    border: 1px solid #555;
+    padding: 10px;
+}
+
+/*-----------------------------*/
+/* Buttons and inputs in second-menu */
+/*-----------------------------*/
+#second-menu input[type="text"], #second-menu button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #444;
+    color: #fff;
+}
+
+#second-menu input::placeholder {
+    color: #888; /* Better contrast for placeholders */
+}
+
+#second-menu button {
+    background-color: #56c58c;
+    color: white;
+    cursor: pointer;
+}
+
+#second-menu button:hover {
+    background-color: #37966f;
+}
+
+/*-----------------------------*/
+/* Popup and other UI content readability */
+/*-----------------------------*/
+.leaflet-popup-content {
+    white-space: normal !important;
+    word-wrap: break-word;
+    background-color: #fff; /* Light background for better reading */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.leaflet-popup-content.dark {
+    background-color: #333; /* Dark background for dark theme */
+    color: #fff;
+}
+
+/*-----------------------------*/
+/* Transition for smooth theme changes */
+/*-----------------------------*/
+body, header, #map, #dropdown-menu, #second-menu, footer {
+    transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+}
+
+/* Styling for the dropdown button */
+#options-toggle {
+    background-color: #56c58c; /* Green theme color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#options-toggle:hover {
+    background-color: #37966f; /* Darker shade on hover */
+}
+
+/* Hide the other options by default */
+#other-options {
+    list-style: none;
+    padding-left: 0;
+}
+
+#other-options li {
+    margin: 10px 0;
+}

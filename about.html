@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vienna Tree - About</title>
+    
+    <!-- -------------------- -->
+    <!-- Preload and load individual CSS files -->
+    <!-- -------------------- -->
+    <link rel="stylesheet" href="components/css/css_main/header.css">
+
+    <link rel="stylesheet" href="components/css/css_baumkataster/about.css">
+    
+    <link rel="stylesheet" href="components/css/css_main/footer.css">
+
+    <!-- -------------------- -->
+    <!-- Script -->
+    <!-- -------------------- -->
+    <script defer src="components/js/js_baumkataster/support.js"></script>
+    <script defer src="components/js/js_main/app.js"></script>
+
+    <!-- -------------------- -->
+    <!-- Preconnect to external resources to improve loading times -->
+    <!-- -------------------- -->
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- -------------------- -->
+    <!-- Header mit dem Titel und Sandwich Menü -->
+    <!-- -------------------- -->
+    <header>
+        <a href="index.html" id="app-title">BAUMKATASTER WIEN</a>
+        <nav>
+            <div id="sandwich-icon" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- -------------------- -->
+    <!-- Sandwich Dropdown Menü -->
+    <!-- -------------------- -->
+    <aside id="dropdown-menu" style="display: none;">
+        <ul>
+            <li><a href="index.html">BAUMKATASTER WIEN</a></li>
+            <li><a href="baumpflege-bogner.html">BAUMPFLEGE BOGNER</a></li>
+            <!-- Theme Toggle Switch in Menu1 -->
+            <li class="theme-toggle">
+                <label for="theme-toggle">Helles/Dunkles Design</label>
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme" aria-label="Dark/Light Theme Toggle">
+            </li>
+            <li><a href="#" onclick="clearCache()">Cache leeren</a></li>
+            <li><a href="support.html">Support</a></li>
+                    <!-- Login Button -->
+            <li class="login-btn-container">
+                <button id="login-btn" class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            </li>
+            <!-- Add this at the end of your menu (inside <ul>) -->
+            <li class="work-order-upload">
+                <label for="work-order-upload" class="work-order-label">Arbeitsauftrag einscannen:</label>
+                <input type="file" id="work-order-upload" accept="image/*" class="work-order-input" />
+                <button id="work-order-upload-btn" class="upload-btn" onclick="document.getElementById('work-order-upload').click()">Datei auswählen</button>
+                <button id="work-order-process-btn" class="work-order-btn" onclick="processWorkOrder()">Arbeitsauftrag verarbeiten</button>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- -------------------- -->
+    <!-- Hauptinhalt der Support Seite -->
+    <!-- -------------------- -->
+    <main>
+        <div class="container about-container">
+            <div class="container about-container">
+                <div class="row">
+                        <!-- left side content -->
+                    <div class=" about-content animated fadeIn" >
+                        <h1 class="animated fadeIn one">à propos</h1>
+                           <div class="about-me">
+                               <div class="animated fadeIn two">
+                                <p>Bienvenue sur le Vienna Tree Register, une application web moderne créée pour connecter les citoyens aux espaces verts dynamiques et aux arbres remarquables de Vienne. Notre mission est de fournir une plate-forme conviviale qui offre des informations précieuses sur la foresterie urbaine de Vienne, améliorant ainsi le lien entre les résidents de la ville et leur environnement naturel.</p>
+                                <p>Notre plateforme combine les données Open Data de la ville de Vienne avec les dernières technologies, en utilisant Leaflet et d'autres API open source pour vous apporter des informations précises, interactives et à jour sur les arbres de Vienne.</p>
+                            </div>
+                               <div class="Synopsis-highlightLine five" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                               <div class="animated fadeIn three">
+                                <div class="Synopsis-highlight">
+                                    <h2>Ce que nous offrons</h2><br/>
+                                    <ul>
+                                        <li>
+                                            <b>Cartographie des arbres:</b> Découvrez les arbres de votre quartier et apprenez-en davantage sur leur espèce, leur âge et leur état en quelques clics.
+                                        </li>
+                                        <li>
+                                            <b>Visualisation interactive:</b> Nos données sont présentées dans un format interactif, vous permettant d'explorer intuitivement la verdure de Vienne.
+                                        </li>
+                                        <li>
+                                            <b>Données fiables:</b> Toutes les informations proviennent directement de la ville de Vienne, ce qui garantit leur exactitude et leur fiabilité. Nous sommes reconnaissants pour leurs contributions, qui font de notre plateforme une ressource fiable.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="Synopsis-highlightLine five" style=" transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                            <div class="animated fadeIn four">
+                                <p>Notre engagement Au Vienna Tree Register, nous nous engageons à favoriser l'appréciation de l'environnement naturel urbain et à promouvoir la transparence autour des espaces verts de Vienne. Nous pensons qu'une communauté informée peut contribuer à défendre et à protéger ces précieux atouts naturels.</p>
+                                <p>Au Vienna Tree Register, nous envisageons une ville où chacun dispose des outils nécessaires pour connaître, apprécier et protéger nos espaces verts communs. Les arbres jouent un rôle essentiel dans les environnements urbains, qu'il s'agisse d'améliorer la qualité de l'air et de réguler les températures, ou d'offrir une beauté naturelle et un abri à la faune locale. En rendant les données sur les arbres de Vienne accessibles, nous souhaitons inspirer un lien plus fort entre les habitants de la ville et les ressources naturelles qui enrichissent notre vie quotidienne.</p>
+                                <p>Notre plateforme est rendue possible grâce à l'intégration de technologies de cartographie avancées et d'API. Le Vienna Tree Register exploite la puissance de la technologie open source pour offrir une expérience intuitive et transparente aux utilisateurs. Grâce à la bibliothèque de cartographie open source de Leaflet, nous créons des visualisations dynamiques qui rendent l'exploration des données sur les arbres simple et agréable. Nous nous engageons à améliorer continuellement notre plateforme, en intégrant les dernières technologies pour rendre les informations plus accessibles et plus attrayantes.</p>
+                            </div>
+                        </div>
+                    </div>
+                        <!-- right side content -->
+                    <div class="about-panel-wrapper">
+                        <div class=" about-panel animated fadeIn">
+                          <div class="zero photo-about animated fadeIn" style="transform:translateY(0px) translateZ(0px)">
+                              <div class="hide-photo-filter animated fadeIn"></div>
+                              <div class="about-info">
+                                  <h3 class="about-info-name animated fadeInUp up-one">Baumkataster Wien</h3>
+                                  <div class="about-info-contact">
+                                      <h4 class="animated fadeInUp up-two"> Cartographie des arbres, Visualisation interactive, Données fiables</h4>
+                                      <p class="animated fadeInUp up-three">4456 New Avenue, New York City, NY</p>
+                                      <a href="" class="animated fadeInUp up-four">anusuyacodepen@myemail.com</a>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- -------------------- -->
+    <!-- Footer mit Sprachauswahl -->
+    <!-- -------------------- -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Über uns</h4>
+            <a href="ourmission.html">Unsere Mission</a>
+            <span>|</span>
+            <a href="team.html">Team</a>
+        </div>
+    
+        <div class="footer-section language-selection">
+            <label for="languageSelect">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="zh">🇨🇳 中文 (Chinese)</option>
+                <option value="ru">🇷🇺 Русский (Russian)</option>
+            </select>
+        </div>
+    
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <a href="support.html">Support</a>
+            <span>|</span>
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+</body>
+</html>

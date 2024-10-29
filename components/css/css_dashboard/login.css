@@ -1,0 +1,244 @@
+/* Globale Einstellungen */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #4caf50, #8bc34a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.login-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+/* Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-header h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.login-header p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Toggle Switch */
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Formular */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form label {
+    font-size: 14px;
+    color: #333;
+}
+
+.login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+.login-form button {
+    background-color: #4caf50;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #45a049;
+}
+
+.login-form p {
+    font-size: 14px;
+    color: #777;
+    text-align: center;
+}
+
+/* Links */
+.login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-links a {
+    font-size: 12px;
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+
+/* Passwortstärke */
+#password-strength {
+    font-size: 14px;
+    color: red;
+}
+
+/* Responsives Design */
+@media (max-width: 600px) {
+    /* .login-container {
+        width: 90%;
+    } */
+    .login-container {
+        width: inherit !important;
+        text-align: -webkit-center !important;
+    }
+    .login-header h2 {
+        font-size: 24px;
+    }
+    .switch {
+        height: 23px;
+        width: 48px;
+        margin-bottom: 1rem;
+    }
+    .slider:before {
+        height: 15px;
+        width: 15px;
+    }
+    .login-form input {
+        padding: 5px 10px;
+    }
+    .toggle-container {
+        justify-content: center;
+    }
+    .slider {
+        margin-right: 10px;
+    }
+    input:checked + .slider:before {
+        transform: translateX(17px);
+    }
+    .login-form {
+        gap: 10px;
+    }
+    .login-container {
+        margin-top: -75px;
+    }
+}
+
+/* DARK THEME */
+body.dark {
+    background: linear-gradient(to right, #2b642d, #415c23);
+}
+  .dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+
+  .dark .login-container {
+    background-color: #979797;
+  }
+  
+  .dark font {
+    color: white;
+  }
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+  .dark .work-order-label{
+    color: black;
+  }
+  .dark .work-order-label font, .dark .work-order-label p, .dark .work-order-label {
+    color: white;
+  }

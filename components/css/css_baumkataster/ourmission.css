@@ -1,0 +1,159 @@
+.main-content {
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.our-mission {
+    text-align: center;
+}
+
+.our-mission h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #3c763d;
+}
+
+.our-mission p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.our-mission ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.our-mission ul li {
+    margin: 10px 0;
+}
+
+.our-mission ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.our-mission ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+
+    .our-mission h1 {
+        font-size: 2em;
+    }
+
+    .our-mission p, .our-mission ul li {
+        font-size: 1em;
+    }
+}
+
+/* Our Mission Styles */
+.mission-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.mission-section h1 {
+    font-size: 2.5em;
+    color: #37966f;
+}
+
+.mission-section p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.mission-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.mission-images img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .mission-section h1 {
+        font-size: 2em;
+    }
+    .mission-section p {
+        font-size: 1em;
+    }
+    .mission-images img {
+        width: 100%;
+        height: auto;
+    }
+    footer {
+        display: flex;
+    }
+}
+
+/* DARK THEME */
+  .dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+
+  .dark .login-container {
+    background-color: #979797;
+  }
+  
+  .dark font {
+    color: white;
+  }
+.dark font {
+    color: white;
+}
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+  .dark .work-order-label{
+    color: black;
+  }
+
+  .dark .work-order-label font, .dark .work-order-label p, .dark .work-order-label {
+    color: white;
+  }
+  .dark .language-selection select {
+    background-color: #323232;
+  }

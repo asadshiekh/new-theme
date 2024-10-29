@@ -1,0 +1,243 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme change */
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+/* Light/Dark Theme Toggle */
+body.light {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.dark {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+}
+
+/* General Container */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Text Sizes and Spacing */
+h1, h2 {
+    font-size: calc(16px + 0.5vw);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 30px;
+    font-size: calc(11px + 0.5vw);
+    font-weight: 500;
+}
+
+/* Form Labels */
+.support-form label {
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+
+/* Main Content Styles */
+main {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+/* Form and Input Styles */
+.support-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.support-form input, 
+.support-form select, 
+.support-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #f4f4f4;
+}
+
+.support-form input:focus, 
+.support-form select:focus, 
+.support-form textarea:focus {
+    border-color: #4CAF50;
+    background-color: white;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Button Styles */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Support Page Styles */
+.support-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.support-section h1 {
+    font-size: 2.5em;
+    color: #37966f;
+}
+
+.support-section p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.support-contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.support-contact-form input, .support-contact-form textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.support-contact-form button {
+    padding: 10px 20px;
+    background-color: #56c58c;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.support-contact-form button:hover {
+    background-color: #37966f;
+}
+
+@media (max-width: 768px) {
+    .support-section h1 {
+        font-size: 2em;
+    }
+    .support-section p {
+        font-size: 1em;
+    }
+    .support-contact-form input, .support-contact-form textarea {
+        width: 100%;
+    }
+    p {
+        margin-bottom: 8px;
+        font-size: calc(12px + 0.5vw);
+        font-weight: 500;
+    }
+    .support-form input, .support-form select, .support-form textarea {
+        padding: 10px;
+    }
+    .support-form label {
+        margin-top: 0px;
+    }
+    main {
+        padding: 10px 20px;
+    }
+    footer {
+        display: flex;
+    }
+}
+
+/* DARK THEME */
+.dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+
+  .dark .login-container {
+    background-color: #979797;
+  }
+  
+  .dark p font {
+    color: white;
+  }
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input, .dark select, .dark textarea {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+
+  .dark main {
+    background: #979797;
+
+  }
+
+  .dark .work-order-label font, .dark .work-order-label p, .dark .work-order-label {
+    color: white;
+  }
+  .dark .language-selection select {
+    background-color: #323232;
+  }

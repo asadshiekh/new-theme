@@ -1,0 +1,388 @@
+/* General Header Styles */
+header {
+    background-color: #3c763d;
+    color: white;
+    padding: 10px 20px;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+body {
+    padding-top: 60px;  /* Adjust based on the height of the header */
+}
+
+/*-----------------------------*/
+/* Title as a clickable home link */
+/*-----------------------------*/
+header a#app-title {
+    font-size: clamp(16px, 4vw, 32px); /* Responsive title size */
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;  /* Prevent title from breaking into two lines */
+    font-weight: bold;
+    font-variant-caps: small-caps;
+}
+
+header a#app-title:hover {
+    color: #f0f0f0; /* Slight color change on hover */
+}
+
+/*-----------------------------*/
+/* Navigation (Right-aligned inside the header) */
+/*-----------------------------*/
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/*-----------------------------*/
+/* Sandwich Menu Icon (Menu 1) */
+/*-----------------------------*/
+#sandwich-icon {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    flex-shrink: 0;
+}
+
+#sandwich-icon span {
+    background-color: #333;
+    display: block;
+    height: 3px;
+    width: 20px;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+#sandwich-icon.open span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+#sandwich-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+#sandwich-icon.open span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/*-----------------------------*/
+/* Responsive Header for Mobile */
+/*-----------------------------*/
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: row;
+        padding: 10px;
+    }
+
+    header a#app-title {
+        font-size: calc(1.2rem + 1vw);
+        white-space: nowrap;
+    }
+
+    #sandwich-icon {
+        margin-left: 10px;
+    }
+}
+
+/*-----------------------------*/
+/* Sidebar Dropdown Menu (Menu 1) */
+/*-----------------------------*/
+#dropdown-menu {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    width: 90%; /* More responsive for mobile */
+    max-width: 350px;
+    top: 80px;
+    right: 10px;
+    z-index: 1000;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#dropdown-menu ul li {
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+#dropdown-menu ul li a {
+    
+    font-size: 16px;
+    color: #37966f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#dropdown-menu ul li a:hover {
+    color: #3c763d;
+}
+
+/*-----------------------------*/
+/* Work order input and buttons in Menu 1 */
+/*-----------------------------*/
+.work-order-upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.work-order-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #37966f; /* Matches the tree colors */
+}
+
+.work-order-input {
+    display: none;
+}
+
+.upload-btn, .work-order-btn {
+    padding: 10px 20px;
+    background-color: #56c58c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover, .work-order-btn:hover {
+    background-color: #37966f;
+}
+
+.upload-btn:focus, .work-order-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(55, 150, 111, 0.7);
+}
+
+/*-----------------------------*/
+/* Responsive Design Adjustments for Work Order */
+/*-----------------------------*/
+@media (max-width: 768px) {
+    .work-order-upload {
+        margin-top: 15px;
+    }
+
+    .upload-btn, .work-order-btn {
+        width: 80%;
+    }
+}
+
+/*-----------------------------*/
+/* Styles for the theme toggle switch */
+/*-----------------------------*/
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.theme-toggle label {
+    font-size: 16px;
+    color: #37966f;
+}
+
+/*-----------------------------*/
+/* Theme Switch Checkbox */
+/*-----------------------------*/
+#theme-toggle {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:checked {
+    background-color: #56c58c;
+}
+
+#theme-toggle:before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:checked:before {
+    transform: translateX(20px);
+}
+
+.loading-translation {
+    cursor: wait;
+    opacity: 0.5;
+}
+
+/*-----------------------------*/
+/* Styling for the Login Button in the menu */
+/*-----------------------------*/
+.login-btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-btn {
+    background-color: #56c58c; /* Matches the green theme */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #37966f; /* Darker shade on hover */
+}
+
+.login-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(55, 150, 111, 0.7);
+}
+
+/*-----------------------------*/
+/* Loading Spinner Style */
+/*-----------------------------*/
+.loading-translation {
+    cursor: wait;
+    opacity: 0.6;
+    pointer-events: none;  /* Disable interactions while loading*/
+}
+
+#loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #3c763d;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/*-----------------------------*/
+/* Leaflet Popup Content */
+/*-----------------------------*/
+.leaflet-popup-content {
+    white-space: normal !important;
+    word-wrap: break-word;
+}
+
+/*-----------------------------*/
+/* Default theme: light */
+/*-----------------------------*/
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header.light-header {
+    background-color: #3c763d;
+    color: white;
+}
+
+#map.light-map {
+    filter: brightness(1);
+}
+
+#dropdown-menu.light-menu,
+#second-menu.light-menu {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+}
+
+footer.light-footer {
+    background-color: #3c763d;
+    color: white;
+}
+
+/*-----------------------------*/
+/* Dark theme overrides */
+/*-----------------------------*/
+body.dark {
+    background-color: #121212;
+    color: #eee;
+}
+
+header.dark-header {
+    background-color: #222;
+    color: #ddd;
+}
+
+#map.dark-map {
+    filter: brightness(0.6); /* Darken the map slightly */
+}
+
+#dropdown-menu.dark-menu,
+#second-menu.dark-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+}
+
+footer.dark-footer {
+    background-color: #222;
+    color: #ddd;
+}
+
+/*-----------------------------*/
+/* Transition for smooth theme changes */
+/*-----------------------------*/
+body, header, #map, #dropdown-menu, #second-menu, footer {
+    transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
+}

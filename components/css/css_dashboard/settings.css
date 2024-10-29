@@ -1,0 +1,201 @@
+/* HEADER */
+.menu-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.submenu.hidden {
+    display: none;
+}
+
+.submenu.show {
+    display: block;
+}
+
+.submenu-arrow {
+    transition: transform 0.3s ease;
+}
+
+.submenu-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+.menu-list-modern li {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+/* SCROLLBAR START */
+.menu-list-modern {
+    max-height: 73dvh; /* Set a maximum height as needed */
+    overflow-y: auto;  /* Enable vertical scrolling */
+}
+
+/* Custom Scrollbar for WebKit browsers */
+.menu-list-modern::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.menu-list-modern::-webkit-scrollbar-track {
+    background: #2E3B4E; /* Color of the track (scrollbar background) */
+}
+
+.menu-list-modern::-webkit-scrollbar-thumb {
+    background-color: #555; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounds the scrollbar edges */
+    border: 2px solid #2E3B4E; /* Adds a border to blend with the track */
+}
+
+.menu-list-modern::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Darkens on hover */
+}
+
+
+/* SCROLLBAR ENDS  */
+.settings-main {
+    margin-left: 260px;
+    padding: 20px;
+    padding-bottom: 120px;
+    max-width: 100%;
+    overflow: auto;
+}
+
+.settings-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fafafa;
+}
+
+button.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.btn-primary:hover {
+    background-color: #45a049;
+}
+
+button.btn-secondary {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.btn-secondary:hover {
+    background-color: #e53935;
+}
+
+button.btn-danger {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button.btn-danger:hover {
+    background-color: #c62828;
+}
+
+
+.description {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.content-wrapper .content-wrapper {
+    flex: 1;
+    overflow-y: auto; /* Scrollable content */
+    height: calc(100vh - 220px); /* Full height minus the header */
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrapper {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 10px;
+    }
+}
+
+/* DARK THEME */
+.dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+  
+  .dark p {
+    color: white;
+  }
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input, .dark select {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+  .dark .work-order-label{
+    color: black;
+  }
+.dark #team-slider {
+    background: #979797;
+  }
+  .dark .work-order-label font {
+    color: white;
+  }
+
+.dark .settings-section {
+    background-color: #979797;
+}

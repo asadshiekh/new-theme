@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baumkataster Wien</title>
+    
+        <!-- -------------------- -->
+        <!-- Preload and load individual CSS files -->
+        <!-- -------------------- -->
+        <link rel="stylesheet" href="components/css/css_main/header.css">
+        
+        <link rel="stylesheet" href="components/css/css_main/main.css">
+    
+        <link rel="stylesheet" href="components\.css\.css Baumkataster\impressum.css">
+        
+        <link rel="stylesheet" href="components/css/css_main/footer.css">
+    
+        <!-- -------------------- -->
+        <!-- Script -->
+        <!-- -------------------- -->
+        <script defer src="components/js/js_baumkataster/impressum.js"></script>
+        <script defer src="components/js/js_main/app.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+        
+
+        <!-- -------------------- -->
+        <!-- Preconnect to external resources to improve loading times -->
+        <!-- -------------------- -->
+        <link rel="preconnect" href="https://unpkg.com">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+
+</head>
+
+<body>
+    <!-- -------------------- -->
+    <!-- Header mit dem Titel und Sandwich Menü -->
+    <!-- -------------------- -->
+    <header>
+        <a href="index.html" id="app-title">BAUMKATASTER WIEN</a>
+        <nav>
+            <div id="sandwich-icon" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- -------------------- -->
+    <!-- Sandwich Dropdown Menü -->
+    <!-- -------------------- -->
+    <aside id="dropdown-menu" style="display: none;">
+        <ul>
+            <li><a href="index.html">BAUMKATASTER WIEN</a></li>
+            <li><a href="baumpflege-bogner.html">BAUMPFLEGE BOGNER</a></li>
+            <!-- Theme Toggle Switch in Menu1 -->
+            <li class="theme-toggle">
+                <label for="theme-toggle">Helles/Dunkles Design</label>
+                <input type="checkbox" id="theme-toggle" onclick="toggleTheme" aria-label="Dark/Light Theme Toggle">
+            </li>
+            <li><a href="#" onclick="clearCache()">Cache leeren</a></li>
+            <li><a href="support.html">Support</a></li>
+                    <!-- Login Button -->
+            <li class="login-btn-container">
+                <button id="login-btn" class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            </li>
+            <!-- Add this at the end of your menu (inside <ul>) -->
+            <li class="work-order-upload">
+                <label for="work-order-upload" class="work-order-label">Arbeitsauftrag einscannen:</label>
+                <input type="file" id="work-order-upload" accept="image/*" class="work-order-input" />
+                <button id="work-order-upload-btn" class="upload-btn" onclick="document.getElementById('work-order-upload').click()">Datei auswählen</button>
+                <button id="work-order-process-btn" class="work-order-btn" onclick="processWorkOrder()">Arbeitsauftrag verarbeiten</button>
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section1')">Angaben gemäß § 5 TMG</button>
+            <div id="section1">
+                <p>
+                    Max Mustermann<br>
+                    Musterstraße 1<br>
+                    12345 Musterstadt<br>
+                    Österreich
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section2')">Kontakt</button>
+            <div id="section2">
+                <p>
+                    Telefon: +43 123 456 789<br>
+                    Fax: +43 987 654 321<br>
+                    E-Mail: <a href="mailto:info@baumkataster.at">info@baumkataster.at</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section3')">Verantwortlich für den Inhalt</button>
+            <div id="section3">
+                <p>
+                    Max Mustermann<br>
+                    Musterstraße 1<br>
+                    12345 Musterstadt<br>
+                    Österreich
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section4')">EU-Streitschlichtung</button>
+            <div id="section4">
+                <p>
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.
+                    Unsere E-Mail-Adresse finden Sie oben im Impressum.
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section5')">Haftung für Inhalte</button>
+            <div id="section5">
+                <p>
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+                    Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, 
+                    die auf eine rechtswidrige Tätigkeit hinweisen.
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section6')">Haftung für Links</button>
+            <div id="section6">
+                <p>
+                    Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. 
+                    Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section7')">Urheberrecht</button>
+            <div id="section7">
+                <p>
+                    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem österreichischen Urheberrecht. 
+                    Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes 
+                    bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                </p>
+            </div>
+        </div>
+
+        <div class="impressum-section">
+            <button onclick="toggleDropdown('section8')">Kontaktformular</button>
+            <div id="section8">
+                <div class="container">
+                    <form class="well form-horizontal" action=" " method="post" id="contact_form">
+                      <fieldset>
+                        <!-- Form Name -->
+                        <legend>Kontaktieren Sie uns noch heute!</legend>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Vorname</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                              <input name="vorname" placeholder="Vorname" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Nachname</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                              <input name="nachname" placeholder="Nachname" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">E-Mail</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                              <input name="email" placeholder="E-Mail Adresse" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Telefonnummer</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                              <input name="telefon" placeholder="(0664)123-4567" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Interessieren Sie sich für... -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Ich interessiere mich für...</label>
+                          <div class="col-md-4">
+                            <label><strong>Baum:</strong></label>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Baumkontrolle"> Baumkontrolle
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Baumpflege"> Baumpflege
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Baumabtragung/Fällung"> Baumabtragung/Fällung
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Baumstumpffräsung"> Baumstumpffräsung
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Häckseldienst"> Häckseldienst
+                              </label>
+                            </div>
+                            
+                            <label><strong>Garten:</strong></label>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Hecken- und Strauchschnitt"> Hecken- und Strauchschnitt
+                              </label>
+                            </div>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Ganzjahresbetreuung"> Ganzjahresbetreuung
+                              </label>
+                            </div>
+                  
+                            <label><strong>Seilklettertechnik:</strong></label>
+                            <div class="checkbox">
+                              <label>
+                                <input type="checkbox" name="interesse[]" value="Baumschnitt und Bewuchsentfernung"> Fremdbewuchsentfernungen
+                              </label>
+                            </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="interesse[]" value="Baumpflege"> Baumpflege
+                                </label>
+                              </div>
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" name="interesse[]" value="Baumabtragung/Fällung"> Baumabtragung/Fällung
+                                </label>
+                              </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Adresse</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                              <input name="adresse" placeholder="Adresse" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Stadt</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                              <input name="stadt" placeholder="Stadt" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Select Basic -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Bundesland</label>
+                          <div class="col-md-4 selectContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                              <select name="bundesland" class="form-control selectpicker">
+                                <option value="">Bitte wählen Sie Ihr Bundesland</option>
+                                <option>Burgenland</option>
+                                <option>Kärnten</option>
+                                <option>Niederösterreich</option>
+                                <option>Oberösterreich</option>
+                                <option>Salzburg</option>
+                                <option>Steiermark</option>
+                                <option>Tirol</option>
+                                <option>Vorarlberg</option>
+                                <option>Wien</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Postleitzahl</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                              <input name="plz" placeholder="Postleitzahl" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text input-->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Website oder Domainname</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                              <input name="website" placeholder="Website oder Domainname" class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Text area -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Projektbeschreibung</label>
+                          <div class="col-md-4 inputGroupContainer">
+                            <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                              <textarea class="form-control" name="beschreibung" placeholder="Projektbeschreibung"></textarea>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <!-- Success message -->
+                        <div class="alert alert-success" role="alert" id="success_message">Erfolgreich <i class="glyphicon glyphicon-thumbs-up"></i> Vielen Dank für Ihre Nachricht, wir werden uns bald bei Ihnen melden.</div>
+                  
+                        <!-- Button -->
+                        <div class="form-group">
+                          <label class="col-md-4 control-label"></label>
+                          <div class="col-md-4">
+                            <button type="submit" class="btn btn-warning">Senden <span class="glyphicon glyphicon-send"></span></button>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- -------------------- -->
+    <!-- Footer mit Sprachauswahl -->
+    <!-- -------------------- -->
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Über uns</h4>
+            <a href="ourmission.html">Unsere Mission</a>
+            <span>|</span>
+            <a href="team.html">Team</a>
+        </div>
+    
+        <div class="footer-section language-selection">
+            <label for="languageSelect">Language:</label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">🇬🇧 English</option>
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="es">🇪🇸 Español</option>
+                <option value="fr">🇫🇷 Français</option>
+                <option value="zh">🇨🇳 中文 (Chinese)</option>
+                <option value="ru">🇷🇺 Русский (Russian)</option>
+            </select>
+        </div>
+    
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <a href="support.html">Support</a>
+            <span>|</span>
+            <a href="impressum.html">Impressum</a>
+        </div>
+    </footer>
+        
+</body>
+</html>
