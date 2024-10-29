@@ -1,0 +1,217 @@
+/* Allgemeine Sidebar-Styling */
+.sidebar-modern {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    padding-top: 120px;
+    top: 0;
+    left: 0;
+    background-color: #2e3b4e;
+    color: white;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.sidebar-modern.collapsed {
+    width: 80px;
+    cursor: pointer;
+    overflow: hidden; /* Versteckt Inhalte beim Einklappen */
+}
+
+/* Sidebar Header Styling */
+.sidebar-header-modern {
+    padding: 20px;
+    text-align: center;
+    background-color: #1b2431;
+}
+
+/* Kleineren Switch Button Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;  /* Kleinere Breite */
+    height: 24px; /* Kleinere Höhe */
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; /* Kleinere Größe */
+    width: 18px;  /* Kleinere Größe */
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #76c7c0;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px); /* Angepasste Translate für kleinere Größe */
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Menü und Submenü Styling */
+.menu-list-modern {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-list-modern li {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.menu-list-modern li:hover {
+    background-color: #3b4d63;
+}
+
+.menu-button {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background-color: #3b4d63;
+}
+
+/* Submenü-Styling und Position des Pfeils */
+.submenu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.submenu-arrow {
+    width: 16px;  /* Kleinere Breite */
+    height: 16px; /* Kleinere Höhe */
+    transition: transform 0.3s ease;
+}
+
+.submenu-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* Submenü Styling */
+.submenu {
+    display: none;
+    flex-direction: column; /* Buttons untereinander anzeigen */
+    padding-left: 20px;
+    transition: max-height 0.3s ease;
+}
+
+.submenu.show {
+    display: flex; /* Zeige das Submenü an */
+}
+
+.submenu-btn {
+    background-color: #4a5d73;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    margin: 5px 0;
+    width: 100%; /* Buttons nehmen die volle Breite ein */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem; /* Kleinere Schrift */
+}
+
+.submenu-btn:hover {
+    background-color: #3b4d63;
+}
+
+/* Sidebar im eingeklappten Zustand */
+.sidebar-modern.collapsed .menu-list-modern {
+    opacity: 0; /* Versteckt die Menüpunkte beim Einklappen */
+}
+
+.sidebar-modern.collapsed .submenu {
+    display: none; /* Versteckt Submenü */
+}
+
+.sidebar-modern.collapsed .switch {
+    margin: 0 auto; /* Zentriert den Switch im eingeklappten Zustand */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .sidebar-modern {
+        width: 60px;
+    }
+
+    .menu-list-modern li {
+        justify-content: center;
+    }
+
+    .menu-button {
+        text-align: center;
+    }
+
+    .sidebar-header-modern {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar-modern {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .menu-list-modern li {
+        padding: 10px;
+        justify-content: center;
+    }
+
+    .menu-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .submenu-btn {
+        padding: 8px 10px;
+    }
+}

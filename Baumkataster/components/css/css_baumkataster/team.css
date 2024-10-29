@@ -1,0 +1,203 @@
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #37966f;
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Team Slider Styles */
+#team-slider {
+    background-color: white;
+    padding: 40px 0;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slide-description {
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 24px;
+    color: #37966f;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    background-color: #37966f;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Team Page Styles */
+.team-section {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.team-section h1 {
+    font-size: 2.5em;
+    color: #37966f;
+}
+
+.team-section p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.team-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 20px;
+    scroll-behavior: smooth;
+}
+
+.team-slider img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .team-section h1 {
+        font-size: 2em;
+    }
+    .team-section p {
+        font-size: 1em;
+    }
+    .team-slider img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .container {
+        padding: 0px 40px;
+    }
+    p {
+        font-size: 16px;
+    }
+    #team-slider {
+        background-color: white;
+        padding: 20px 0;
+    }
+    h1 {
+        font-size: 28px;
+        margin-bottom: 0px;
+        margin-top: 10px;
+    }
+    .prev, .next {
+        padding: 10px 20px;
+    }
+    .slider-controls {
+        width: 95%;
+        inset-area: center;
+    }
+    footer {
+        display: flex;
+    }
+}
+
+/* DARK THEME */
+.dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+
+  .dark .login-container {
+    background-color: #979797;
+  }
+  
+  .dark p font {
+    color: white;
+  }
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+.dark #team-slider {
+    background: #979797;
+  }
+  .dark .work-order-label font, .dark .work-order-label p, .dark .work-order-label {
+    color: white;
+  }
+  .dark .language-selection select {
+    background-color: #323232;
+  }

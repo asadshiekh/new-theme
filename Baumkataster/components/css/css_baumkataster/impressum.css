@@ -1,0 +1,154 @@
+body{
+    overflow-y: auto
+}
+
+header{
+    display: flex;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #37966f;
+}
+
+
+h2 {
+    font-size: 20px;
+    color: #37966f;
+    margin-bottom: 10px;
+}
+
+main {
+    margin: 80px 20px 20px 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 64vh;
+    overflow-y: auto;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.container {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.impressum-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-height: 500px;
+    overflow-y: auto; /* Scrollable content */
+}
+
+.impressum-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+a {
+    color: #37966f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.impressum-section {
+    margin-bottom: 15px;
+}
+
+.impressum-section button {
+    width: 100%;
+    background-color: #37966f;
+    color: white;
+    border: none;
+    padding: 15px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.impressum-section button:hover {
+    background-color: #2f8b5f;
+}
+
+.impressum-section button:focus {
+    outline: none;
+}
+
+.impressum-section div {
+    padding: 5px;
+    display: none;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+#contact_form fieldset div:nth-child(2) div{
+    padding: 0;
+}
+
+#success_message{
+     display: none;
+}
+/* DARK THEME */
+.dark header {
+    background-color: #222;
+    color: #ddd;
+  }
+
+  .dark .login-header h2 {
+    color: black;
+  }
+
+  .dark main {
+    background-color: #979797;
+  }
+  
+  .dark p {
+    color: white;
+  }
+  /*-----------------------------*/
+  /* Adjust menu styles for better readability */
+  /*-----------------------------*/
+  .dark #dropdown-menu {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #ddd;
+  }
+  
+  .dark footer {
+    background-color: #222;
+    color: #ddd;
+  }
+  
+  .dark input {
+    background-color: #333;
+    color: #eee;
+  }
+  
+  .dark .work-order-upload {
+    background: #979797;
+  }
+  .dark .work-order-label{
+    color: black;
+  }
+.dark #team-slider {
+    background: #979797;
+  }
+  .dark .work-order-label font {
+    color: white;
+  }

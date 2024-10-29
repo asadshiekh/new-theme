@@ -1,0 +1,109 @@
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 10px 20px;
+    background-color: #3c763d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    color: white;
+    font-size: 14px;
+    flex-wrap: wrap; /* Allow footer to wrap on small screens */
+}
+/*-----------------------------*/
+/* Footer Sections */
+/*-----------------------------*/
+.footer-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.footer-section h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+/*-----------------------------*/
+/* Footer Links */
+/*-----------------------------*/
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/*-----------------------------*/
+/* Responsive Footer */
+/*-----------------------------*/
+@media screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 15px;
+        height: auto;
+    }
+
+    .footer-section {
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+
+    /* Reduce the number of visible items on smaller screens */
+    .footer-section h4,
+    .footer-section a {
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    /* Hide some items on small screens if too many are present */
+    .footer-section a:nth-child(n+3) {
+        display: none; /* Hide all links beyond the second one */
+    }
+}
+
+/*-----------------------------*/
+/* Language Selection */
+/*-----------------------------*/
+.language-selection select {
+    padding: 5px;
+    font-size: 14px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* For very small screens (mobile-first design) */
+@media screen and (max-width: 480px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .footer-section h4,
+    .footer-section a {
+        font-size: 12px;
+    }
+
+    .footer-section a {
+        padding: 5px 0;
+    }
+
+    /* Show only one or two crucial items */
+    .footer-section a:nth-child(n+2) {
+        display: none;
+    }
+    .footer-section span {
+        display: none;
+    }
+}
